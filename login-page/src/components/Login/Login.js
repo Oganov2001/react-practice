@@ -49,7 +49,7 @@ const Login = (props) => {
       console.log('CLEANUP');
       clearTimeout(identifier);
     };
-  }, [emailIsValid, passwordIsValid]);
+  }, [emailState.isValid, passwordState.isValid]);
 
   const emailChangeHandler = (event) => {
     dispatchEmail({type: 'USER_INPUT', val: event.target.value});
@@ -69,11 +69,12 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    authCtx.onLogin(emailState.value, enteredPassword);
+    authCtx.onLogin(emailState.value, passwordState.value);
   };
 
   return (
     <Card className={classes.login}>
+      <form onSubmit={submitHandler}>
         <Input
           id='email'
           label='E-Mail'

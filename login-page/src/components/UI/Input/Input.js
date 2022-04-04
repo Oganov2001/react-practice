@@ -4,7 +4,6 @@ import classes from './Input.module.css';
 
 const Input = props => {
   return (
-    <form onSubmit={submitHandler}>
     <div
       className={`${classes.control} ${
         props.isValid === false ? classes.invalid : ''
@@ -15,7 +14,7 @@ const Input = props => {
         type={props.type}
         id={props.id}
         value={props.value}
-        onChange={props.onCHange}
+        onChange={props.onChange}
         onBlur={props.onBlur}
       />
     </div>
